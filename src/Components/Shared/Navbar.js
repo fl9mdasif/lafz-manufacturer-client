@@ -25,8 +25,8 @@ const Navbar = () => {
             <li><Link to='/shop' >Shop</Link></li>
             <li><Link to='/blogs' >Blog</Link></li>
             {/* <li><Link to='/prac' >Practice</Link></li> */}
-            {user && <li><Link to='/addshoe' >AddShoe</Link></li>}
-            {user && <li><Link to='/manageshoes' >ManageShoes</Link></li>}
+            {user && <li><Link to='/addProduct' >Add Product</Link></li>}
+            {user && <li><Link to='/manageProduct' >Manage Product</Link></li>}
         </>
 
     return (

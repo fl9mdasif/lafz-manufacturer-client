@@ -99,9 +99,6 @@ const MyItems = () => {
                                     >
                                         <box-icon color='red' type='solid' name='trash'></box-icon>
                                     </button>
-
-
-
                                 </td>
                             </tr>
                         )

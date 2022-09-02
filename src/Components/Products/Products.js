@@ -1,15 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
-import Loading from '../Shared/Loading';
+import useProducts from '../Hooks/Hooks';
 import Product from './Product';
 
-const AllShoes = () => {
+const Products = () => {
 
-    const { isLoading, error, data: products } = useQuery(['allShoeData'], () =>
-        fetch('https://pure-shore-88854.herokuapp.com/allshoes').then(res =>
-            res.json())
-    )
-    if (isLoading) return <Loading />
-    if (error) return 'An error has occurred: ' + error.message
+    const products = useProducts([])
     // console.log(products)
 
     return (
@@ -23,11 +17,11 @@ const AllShoes = () => {
                 lg:grid-cols-3 
                 xl:grid-cols-4 ">
                 {
-                    products.map(product => <Product key={product._id} product={product}></Product>)
+                    products[0].map(product => <Product key={product._id} product={product}></Product>)
                 }
             </div>
         </div>
     );
 };
 
-export default AllShoes;
+export default Products;

@@ -42,6 +42,7 @@
 
 .card {
     background-color: #fefbfd;
+    border-radius: 0 !important;
 }
 
 .certificateH2 {

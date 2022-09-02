@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../Firebase.init';
 
-const AddShoe = () => {
+const AddProduct = () => {
     const imageStorageKey = '2c213338298945009a5f44b7b85d3b4f';
 
     //Form Control & Submit
@@ -52,7 +52,7 @@ const AddShoe = () => {
                     }
                     console.log('product', product);
 
-                    const url = `https://pure-shore-88854.herokuapp.com/addShoe`;
+                    const url = `https://pure-shore-88854.herokuapp.com/AddProduct`;
 
                     fetch(url, {
                         method: 'POST',
@@ -81,7 +81,7 @@ const AddShoe = () => {
     }
     return (
         <div>
-            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">ADD SHOE</div>
+            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">ADD PRODUCT</div>
 
             <div className='flex  justify-center items-center'>
                 <div className="card w-96 bg-base-100 shadow-xl">
@@ -289,4 +289,4 @@ const AddShoe = () => {
     );
 };
 
-export default AddShoe;
+export default AddProduct;

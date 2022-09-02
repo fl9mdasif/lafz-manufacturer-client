@@ -35,7 +35,7 @@ const Hero = () => {
                             <div className=" flex justify-start">
                                 <Link to='/allshoes'
                                     // style={{ backgroundColor: '#850b56' }}
-                                    className="btn drop-shadow-xl heroBtn text-italic btn-sm bg-base"
+                                    className="btn drop-shadow-xl heroBtn text-italic btn-sm bg-base1"
                                 >Buy now</Link>
                             </div>
                         </div>
@@ -50,7 +50,7 @@ const Hero = () => {
                             <div className=" flex justify-start">
                                 <Link to='/allshoes'
                                     // style={{ backgroundColor: '#232324' }}
-                                    className="btn heroBtn text-italic btn-sm   bg-base">Buy now</Link>
+                                    className="btn heroBtn text-italic btn-sm   bg-base1">Buy now</Link>
                             </div>
                         </div>
                     </ div>
@@ -64,7 +64,7 @@ const Hero = () => {
                             <div className=" flex justify-en">
                                 <Link to='/allshoes'
                                     // style={{ backgroundColor: '#850b56' }}
-                                    className="btn heroBtn text-center btn-sm bg-base ">Buy now</Link>
+                                    className="btn heroBtn text-center btn-sm bg-base1 ">Buy now</Link>
                             </div>
                         </div>
                     </ div>

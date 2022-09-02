@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 import './ProductStyle.css'
 
 
-const ShoeDetails = () => {
+const ProductDetails = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     // const navigate = useNavigate()
@@ -219,4 +219,4 @@ const ShoeDetails = () => {
     );
 };
 
-export default ShoeDetails;
+export default ProductDetails;

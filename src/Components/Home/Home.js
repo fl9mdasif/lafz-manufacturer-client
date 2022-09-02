@@ -1,6 +1,7 @@
 import React from 'react';
 import BusinessSummery from '../BusinessSummery/BusinessSummery';
 import Hero from '../Hero.js/Hero';
+import Products from '../Products/Products';
 import CertificatesCarousel from './CertificatesCarousel';
 import ServiceCard from './ServiceCard';
 
@@ -9,6 +10,7 @@ const Home = () => {
         <>
             <Hero />
             <BusinessSummery />
+            <Products />
             <ServiceCard />
             <CertificatesCarousel />
         </>

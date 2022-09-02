@@ -8,7 +8,7 @@ const ServiceCard = () => {
             <div class="card lg:w-64 mb-3 sm:mr-2 md:w-80  sm:w-80 bg-base-100 shadow-xl">
                 <div class="card-body  ">
                     <div class="flex w-52 ">
-                        <box-icon color="#ff57ac" type='solid' name='car'></box-icon>
+                        <box-icon color="#912059" type='solid' name='car'></box-icon>
                         <div class='pl-3'>
                             <h2 class=" sm:t cardH2 ext-xl font-semibold">FREE SHIPPING</h2>
                             <p className='text-base'>On all order over $2000</p>
@@ -20,7 +20,7 @@ const ServiceCard = () => {
             <div class="card lg:w-64 mb-3 sm:mr-2 md:w-80 sm:w-80 bg-base-100 shadow-xl">
                 <div class="card-body  ">
                     <div class="flex w-52 ">
-                        <box-icon color='#ff57ac' name='refresh'></box-icon>
+                        <box-icon color='#912059' name='refresh'></box-icon>
                         <div class='pl-3'>
                             <h2 class=" cardH2  font-semibold ">FREE RETURN</h2>
                             <p className='text-base'>1st exchange in 30 days</p>
@@ -32,7 +32,7 @@ const ServiceCard = () => {
             <div class="card lg:w-64 mb-3 sm:mr-2 md:w-80 sm:w-80 bg-base-100 shadow-xl">
                 <div class="card-body  ">
                     <div class="flex w-52">
-                        <box-icon className='box-icon' color="#ff57ac" type='solid' name='gift'></box-icon>
+                        <box-icon className='box-icon' color="#912059" type='solid' name='gift'></box-icon>
 
                         <div class='pl-3'>
                             <h2 class=" cardH2  font-semibold ">USER DISCOUNT</h2>
@@ -44,7 +44,7 @@ const ServiceCard = () => {
             <div class="card lg:w-64 mb-3 sm:mr-2 md:w-80 sm:w-80 bg-base-100 shadow-xl">
                 <div class="card-body  ">
                     <div class="flex w-52 ">
-                        <box-icon name='headphone' color='#ff57ac' ></box-icon>
+                        <box-icon name='headphone' color='#912059' ></box-icon>
                         <div class='pl-3'>
                             <h2 class=" cardH2  font-semibold ">PREMIUM SUPPORT</h2>
                             <p className='text-base'>Support 24 hours per day</p>
