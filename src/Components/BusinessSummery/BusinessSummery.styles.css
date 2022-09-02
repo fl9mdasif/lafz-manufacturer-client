@@ -1,0 +1,35 @@
+.summery-container {
+    margin-right: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: #fefbfd;
+    box-shadow: 0px 0px 10px rgb(203, 203, 203);
+    border: 2px solid rgba(188, 188, 188, 0.161);
+
+}
+
+
+.absoluteBS {
+    /* position: absolute; */
+    /* top: 0; */
+    /* margin-bottom: 0 */
+    /* margin-top: -100px */
+}
+
+.bs-h1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .summery-container {
+        margin-right: 10px;
+        width: 200px;
+        height: 200px;
+        background-color: #fefbfd;
+        box-shadow: 0px 0px 10px rgb(203, 203, 203);
+        border: 2px solid rgba(188, 188, 188, 0.161);
+
+    }
+}

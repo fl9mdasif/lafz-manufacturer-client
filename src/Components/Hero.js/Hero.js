@@ -64,7 +64,7 @@ const Hero = () => {
                             <div className=" flex justify-en">
                                 <Link to='/allshoes'
                                     // style={{ backgroundColor: '#850b56' }}
-                                    className="btn heroBtn btn-sm bg-base ">Buy now</Link>
+                                    className="btn heroBtn text-center btn-sm bg-base ">Buy now</Link>
                             </div>
                         </div>
                     </ div>

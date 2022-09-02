@@ -30,7 +30,7 @@ const Navbar = () => {
         </>
 
     return (
-        <div className="navbar bg-base top-0 text-white ">
+        <div className="navbar bg-base1 top-0 text-white ">
 
             <div className="navbar-start">
                 {/* mobile dropdown  */}
@@ -48,8 +48,8 @@ const Navbar = () => {
                 {/* mobile dropdown btn   */}
                 <a href="/" className="  pl-3 font-bold text-black normal-case text-xl" >
                     <img style={{
-                        height: '40px',
-                        // width: '100%',
+                        height: '35px',
+                        width: '100%',
                         marginLeft: '10px',
                         objectFit: 'cover'
                     }}
