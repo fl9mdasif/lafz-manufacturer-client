@@ -3,6 +3,7 @@ import React from 'react';
 const Testimonial = () => {
     return (
         <div>
+
             <section class="text-gray-600 body-font">
                 <h1 className='text-4xl py-5 font-bold text-center text-base1'> TESTIMONIALS</h1>
 
@@ -67,6 +68,7 @@ const Testimonial = () => {
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };

@@ -15,9 +15,6 @@ const Navbar = () => {
 
     const dummyUserPhoto = 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
     const photoUrl = user?.reloadUserInfo.photoUrl;
-    // const userName = user?.displayName
-    // console.log(user);
-    // console.log(photoUrl)
 
     const menuItems =
         <>
@@ -69,7 +66,6 @@ const Navbar = () => {
                     <label tabindex="0" class=" m-1">
                         {
                             user ?
-
                                 <div class="avatar online">
                                     <div class=" rounded-full hover13 column">
                                         <figure>
@@ -106,7 +102,6 @@ const Navbar = () => {
                         {
                             user ?
                                 <li>
-
                                     <span onClick={handleSignOut} className="flex items-center text-text ">
                                         Sign Out
                                         <span> <img style={{
@@ -117,7 +112,6 @@ const Navbar = () => {
                                             referrerpolicy="no-referrer"
                                             src={photoUrl ? photoUrl : dummyUserPhoto} alt="" />  </span>
                                     </span>
-
                                 </li>
                                 :
                                 <li><Link to='/login' >Login</Link></li>

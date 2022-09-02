@@ -1,9 +1,10 @@
 import React from 'react';
 import BusinessSummery from '../BusinessSummery/BusinessSummery';
 import Hero from '../Hero.js/Hero';
-import Products from '../Products/Products';
+// import Products from '../Products/Products';
 import Testimonial from '../Testimonial/Testimonial';
 import CertificatesCarousel from './CertificatesCarousel';
+import NewProducts from './NewProducts';
 import ServiceCard from './ServiceCard';
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <>
             <Hero />
             <BusinessSummery />
-            <Products />
+            <NewProducts />
             <ServiceCard />
             <Testimonial />
             <CertificatesCarousel />
