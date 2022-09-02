@@ -1,0 +1,63 @@
+/* hero section starts  */
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    color: #912059 !important;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    background-color: #912059 !important
+}
+
+/* small device  600px below */
+
+@media only screen and (max-width: 600px) {
+    .relative {
+        position: relative;
+    }
+
+    .absolute1 {
+        position: absolute;
+        top: 150px;
+        left: 135px;
+
+    }
+
+
+    .sliderImg {
+        height: 250px !important;
+        object-fit: cover !important;
+    }
+}
+
+.heroBtn {
+    border-radius: 0;
+    border: 0;
+    width: 145px !important;
+    border-radius: 15px;
+    color: #fff !important
+}
+
+/* large device  600px and up) */
+@media only screen and (min-width: 600px) {
+    .relative {
+        position: relative;
+    }
+
+    .absolute1 {
+        position: absolute;
+        top: 312px;
+        left: 438px;
+    }
+
+    .sliderImg {
+        height: 100vh !important
+    }
+
+
+
+
+}
+
+/* hero section end  */
