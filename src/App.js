@@ -14,7 +14,7 @@ import ManageProduct from './Components/Dashboard/ManageProduct';
 import NotFound from './Components/Shared/NotFound';
 import PrivateAuth from './Components/Shared/Login/PrivateAuth';
 import Dashboard from './Components/Dashboard/Dashboard';
-import MyOrders from './Components/Dashboard/MyOrders';
+import MyOrders from './Components/Dashboard/MyOrder';
 import MyProfile from './Components/Dashboard/MyProfile';
 import AddReviews from './Components/Dashboard/AddReview';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
@@ -40,7 +40,11 @@ function App() {
         } />
 
         {/* dashboard  && nested route*/}
-        <Route path='/dashboard' element={<Dashboard />}>
+        <Route path='/dashboard' element={
+          <PrivateAuth>
+            <Dashboard />
+          </PrivateAuth>
+        }>
           <Route index element={<MyOrders />}></Route>
           <Route path="manageProducts" element={<ManageProduct />}></Route>
           <Route path="addProduct" element={<AddProduct />}></Route>

@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
 import Loading from '../Shared/Loading';
 
-const ManageAllOrders = () => {
+const MyOrder = () => {
 
     const [user] = useAuthState(auth)
     const userEmail = user.reloadUserInfo.email;
@@ -38,7 +38,19 @@ const ManageAllOrders = () => {
         }
     };
 
-
+    // User uploaded information 
+    const userOrders = [];
+    // console.log(userOrders);
+    products.map(product => {
+        console.log('productmail:', product.email, 'user:', userEmail)
+        if (product.email === userEmail) {
+            userOrders.push(product)
+        }
+        else {
+            // eslint-disable-next-line array-callback-return
+            return;
+        }
+    });
 
     return (
         <div className="overflow-x-auto">
@@ -59,7 +71,7 @@ const ManageAllOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        products.map((product, index) =>
+                        userOrders.map((product, index) =>
                             <tr>
                                 <td>{index + 1}</td>
                                 <td>
@@ -97,4 +109,4 @@ const ManageAllOrders = () => {
     );
 };
 
-export default ManageAllOrders;
+export default MyOrder;
