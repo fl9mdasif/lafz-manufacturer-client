@@ -1,14 +1,9 @@
 import { toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query'
 import '../Products/ProductStyle.css'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../Firebase.init';
 import Loading from '../Shared/Loading';
 
 const ManageAllOrders = () => {
-
-    const [user] = useAuthState(auth)
-    const userEmail = user.reloadUserInfo.email;
 
     const { isLoading, error, data: products, refetch } = useQuery(['usersOrderData'], () =>
         fetch(`http://localhost:5000/userOrder`).then(res =>
@@ -17,7 +12,6 @@ const ManageAllOrders = () => {
     if (isLoading) return <Loading />
     if (error) return 'An error has occurred: ' + error.message
     // console.log(products)
-    // const { name, brand, description, available, gender, originalPrice, discountPrice, imgUrl, discountRoundPrice } = product
 
 
     // Delete Single Shoe
@@ -42,7 +36,7 @@ const ManageAllOrders = () => {
 
     return (
         <div className="overflow-x-auto">
-            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">MY ITEMS</div>
+            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">MANAGE ALL ORDER</div>
 
             <table className="table table-compact w-full mx-auto text-center">
                 <thead>
@@ -50,9 +44,7 @@ const ManageAllOrders = () => {
                         <th>No.</th>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Brand</th>
                         <th>Quantity</th>
-                        <th>Gender</th>
                         <th>Price</th>
                         <th>Manage</th>
                     </tr>
@@ -75,10 +67,8 @@ const ManageAllOrders = () => {
                                     />
                                 </td>
                                 <td>{product.name}</td>
-                                <td>{product.brand}</td>
-                                <td>{product.available}</td>
-                                <td>{product.gender}</td>
-                                <td>{product.discountPrice}</td>
+                                <td>{product.orderQuantity}</td>
+                                <td>${product.price}</td>
                                 <td>
 
                                     <button

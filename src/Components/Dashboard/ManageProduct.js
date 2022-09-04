@@ -34,18 +34,7 @@ const ManageProduct = () => {
     return (
         <div className="">
             <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">MANAGE PRODUCT</div>
-            {/* <div>
-                <p className='text-red '>Only Admin could manage these items. You could Add / Manage your own items on
-                    <span className=' px-2 text-blue underline'>
-                        <Link to='/addshoe'>Add Item </Link>
-                    </span>
-                    page and
-                    <span className=' px-2 text-blue underline'>
-                        <Link to='/myitems'>Manage Items</Link>
-                    </span>
-                    page
-                </p>
-            </div> */}
+
             <div className="overflow-x-auto">
                 <table className="table table-compact w-full mx-auto text-center">
                     <thead>
@@ -53,9 +42,7 @@ const ManageProduct = () => {
                             <th>No.</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Brand</th>
                             <th>Quantity</th>
-                            <th>Gender</th>
                             <th>Price</th>
                             <th>Manage</th>
                         </tr>
@@ -78,12 +65,10 @@ const ManageProduct = () => {
                                         />
                                     </td>
                                     <td>{product.name}</td>
-                                    <td>{product.brand}</td>
                                     <td>{product.available}</td>
-                                    <td>{product.gender}</td>
-                                    <td>{product.discountPrice}</td>
-                                    <td>
+                                    <td>${product.price}</td>
 
+                                    <td>
                                         <button
                                             // disabled
                                             onClick={() => manageProductToDelete(product._id)}
@@ -91,9 +76,6 @@ const ManageProduct = () => {
                                         >
                                             <box-icon color='red' type='solid' name='trash'></box-icon>
                                         </button>
-
-
-
                                     </td>
                                 </tr>
                             )

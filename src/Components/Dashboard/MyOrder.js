@@ -31,7 +31,7 @@ const MyOrder = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    toast.error('product deleted from All shoes')
+                    toast.error('product deleted from myOrder')
                     refetch()
 
                 })
@@ -42,7 +42,8 @@ const MyOrder = () => {
     const userOrders = [];
     // console.log(userOrders);
     products.map(product => {
-        console.log('productmail:', product.email, 'user:', userEmail)
+        // console.log('productmail:', product.email, 'user:', userEmail)
+
         if (product.email === userEmail) {
             userOrders.push(product)
         }
@@ -54,7 +55,7 @@ const MyOrder = () => {
 
     return (
         <div className="overflow-x-auto">
-            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">MY ITEMS</div>
+            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">MY ORDER</div>
 
             <table className="table table-compact w-full mx-auto text-center">
                 <thead>
@@ -62,11 +63,10 @@ const MyOrder = () => {
                         <th>No.</th>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Brand</th>
                         <th>Quantity</th>
-                        <th>Gender</th>
                         <th>Price</th>
                         <th>Manage</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -87,10 +87,8 @@ const MyOrder = () => {
                                     />
                                 </td>
                                 <td>{product.name}</td>
-                                <td>{product.brand}</td>
-                                <td>{product.available}</td>
-                                <td>{product.gender}</td>
-                                <td>{product.discountPrice}</td>
+                                <td>{product.orderQuantity}</td>
+                                <td>${product.price}</td>
                                 <td>
 
                                     <button

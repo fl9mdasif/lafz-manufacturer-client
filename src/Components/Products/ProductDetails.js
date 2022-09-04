@@ -29,13 +29,13 @@ const ProductDetails = () => {
     // restockQuantity
     const onSubmit = formInfo => {
         const { quantity } = formInfo
-
+        const totalPrice = quantity * price
         const userOrder = {
             name: name,
             email: userEmail,
             orderQuantity: quantity,
             imgUrl: imgUrl,
-            price: price,
+            price: totalPrice,
 
         }
         console.log('userOrder', userOrder);
