@@ -1,14 +1,14 @@
 import { toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query'
-import './ProductStyle.css'
-import { Link } from 'react-router-dom';
+import '../Products/ProductStyle.css'
+// import { Link } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
 const ManageProduct = () => {
 
 
-    const { isLoading, error, data: product } = useQuery(['manageShoeData'], () =>
-        fetch(`https://pure-shore-88854.herokuapp.com/allshoes`).then(res =>
+    const { isLoading, error, data: product, refetch } = useQuery(['manageShoeData'], () =>
+        fetch(`http://localhost:5000/allProducts`).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
@@ -18,7 +18,7 @@ const ManageProduct = () => {
     const manageProductToDelete = (id) => {
         const proceed = window.confirm('Are you sure to delete product');
         if (proceed) {
-            const url = `https://pure-shore-88854.herokuapp.com/allshoes/${id}`;
+            const url = `http://localhost:5000/allProducts/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -26,7 +26,7 @@ const ManageProduct = () => {
                 .then(data => {
                     console.log(data)
                     toast.error('product deleted from All shoes')
-                    // refetch()
+                    refetch()
 
                 })
         }
@@ -34,7 +34,7 @@ const ManageProduct = () => {
     return (
         <div className="">
             <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">MANAGE PRODUCT</div>
-            <div>
+            {/* <div>
                 <p className='text-red '>Only Admin could manage these items. You could Add / Manage your own items on
                     <span className=' px-2 text-blue underline'>
                         <Link to='/addshoe'>Add Item </Link>
@@ -45,7 +45,7 @@ const ManageProduct = () => {
                     </span>
                     page
                 </p>
-            </div>
+            </div> */}
             <div className="overflow-x-auto">
                 <table className="table table-compact w-full mx-auto text-center">
                     <thead>
@@ -85,7 +85,7 @@ const ManageProduct = () => {
                                     <td>
 
                                         <button
-                                            disabled
+                                            // disabled
                                             onClick={() => manageProductToDelete(product._id)}
                                             className=' btn disabledDltBtn border-none text-white btn-xs bg-white'
                                         >

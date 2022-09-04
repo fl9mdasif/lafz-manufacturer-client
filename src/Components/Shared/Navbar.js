@@ -22,8 +22,8 @@ const Navbar = () => {
             <li><Link to='/shop' >Shop</Link></li>
             <li><Link to='/blogs' >Blog</Link></li>
             {/* <li><Link to='/prac' >Practice</Link></li> */}
-            {user && <li><Link to='/addProduct' >Add Product</Link></li>}
-            {user && <li><Link to='/manageProduct' >Manage Product</Link></li>}
+            {user && <li><Link to='/dashboard' >Dashboard</Link></li>}
+            {/* {user && <li><Link to='/manageProduct' >Manage Product</Link></li>} */}
         </>
 
     return (
@@ -39,8 +39,8 @@ const Navbar = () => {
                     <ul tabIndex="0" style={{ backgroundColor: '#912059' }}
                         className="menu bg-red-300 menu-compact dropdown-content mt-3 p-2 shadow text- rounded-box w-52" >
                         {menuItems}
-
                     </ul >
+
                 </div >
                 {/* mobile dropdown btn   */}
                 <a href="/" className="  pl-3 font-bold text-black normal-case text-xl" >
@@ -54,12 +54,16 @@ const Navbar = () => {
                 </a >
             </div >
             <div className="navbar-center hidden lg:flex " >
-                <ul className="menu  text-black menu-horizontal" >
+                <ul className="menu text-black menu-horizontal" >
                     {menuItems}
                 </ul >
             </div >
+
             <div className="navbar-end  pr-4">
-                {/* <p className="">USER</p> */}
+                {/* Dashboard button */}
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label >
 
                 {/* DropDown user photo and login dropdown end   */}
                 <div class="dropdown  dropdown-end">
@@ -97,7 +101,7 @@ const Navbar = () => {
 
                     {/* dropdown list   */}
                     <ul style={{ backgroundColor: '#912059' }} tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        {user && <li > <Link to='/myitems' >My Items</Link></li>}
+                        {/* {user && <li > <Link to='/myitems' >My Items</Link></li>} */}
 
                         {
                             user ?

@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query'
-import './ProductStyle.css'
+import '../Products/ProductStyle.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
 import Loading from '../Shared/Loading';

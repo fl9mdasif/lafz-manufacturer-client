@@ -13,15 +13,15 @@ const AddProduct = () => {
     //Form Control & Submit
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth)
-    console.log(user.email);
+    // console.log(user.email);
 
     const onSubmit = formInfo => {
 
-        const { name, description, quantity, originalPrice, gender, discountPrice, brand } = formInfo;
+        const { name, description, quantity, price, category, minOrder } = formInfo;
 
-        const discount = ((originalPrice - discountPrice) / originalPrice) * 100;
-        const discountRoundPrice = JSON.stringify(Math.round(discount))
-        // console.log('discount: ', discount);
+        // const discount = ((originalPrice - discountPrice) / originalPrice) * 100;
+        // const discountRoundPrice = JSON.stringify(Math.round(discount))
+        // // console.log('discount: ', discount);
 
         //imageBB api
         const image = formInfo.image[0];
@@ -36,23 +36,21 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.success) {
-                    const image = result.data.display_url;
+                    const imageUrl = result.data.display_url;
                     const product = {
-                        email: user.email,
+                        // email: user.email,
                         name: name,
                         description: description,
-                        brand: brand,
-                        gender: gender,
-                        originalPrice: originalPrice,
-                        discountPrice: discountPrice,
+                        imgUrl: imageUrl,
+                        category: category,
+                        price: price,
                         available: quantity,
-                        imgUrl: image,
-                        discountRoundPrice: discountRoundPrice,
-                        // review: review,
-                    }
-                    console.log('product', product);
+                        minOrder: minOrder
 
-                    const url = `https://pure-shore-88854.herokuapp.com/AddProduct`;
+                    }
+                    console.log('addProduct', product);
+
+                    const url = `http://localhost:5000/addProduct`;
 
                     fetch(url, {
                         method: 'POST',
@@ -103,7 +101,7 @@ const AddProduct = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red">{errors.name.message}</span>}
                                 </label>
                             </div>
 
@@ -126,62 +124,8 @@ const AddProduct = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
-                                    {errors.description?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
-                                </label>
-                            </div>
-
-                            {/* Input product brand name */}
-                            <div className="form-control w-full max-w-xs">
-
-                                <input
-                                    type="text"
-                                    placeholder=" Enter Product Brand Name"
-                                    className="input input-bordered w-full max-w-xs"
-                                    {...register("brand", {
-                                        required: {
-                                            value: true,
-                                            message: 'Product Brand is Required'
-                                        },
-                                        pattern: {
-                                            value: true,
-                                            message: 'Provide Product Brand Name'
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.brand?.type === 'required' && <span className="label-text-alt text-red-500">{errors.brand.message}</span>}
-                                    {errors.brand?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.brand.message}</span>}
-                                </label>
-                            </div>
-
-
-                            {/* Input Gender's */}
-                            <div className="form-control w-full max-w-xs">
-
-                                <select
-                                    placeholder=" Enter Product Description"
-                                    className="input input-bordered w-full max-w-xs"
-                                    {...register("gender", {
-                                        required: {
-                                            value: true,
-                                            message: 'Product Description is Required'
-                                        },
-                                        pattern: {
-                                            value: true,
-                                            message: 'Provide Product Description'
-                                        }
-                                    })}>
-                                    <option default value="">Product Gender</option>
-                                    <option value="Man Shoe">Man shoes</option>
-                                    <option value="Women Shoe">Women shoes</option>
-
-
-
-                                </select>
-                                <label className="label">
-                                    {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
-                                    {errors.description?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
+                                    {errors.description?.type === 'required' && <span className="label-text-alt text-red">{errors.description.message}</span>}
+                                    {errors.description?.type === 'pattern' && <span className="label-text-alt text-red">{errors.description.message}</span>}
                                 </label>
                             </div>
 
@@ -189,9 +133,9 @@ const AddProduct = () => {
                             <div className="form-control w-full max-w-xs">
                                 <input
                                     type="number"
-                                    placeholder=" Enter originalPrice Price"
+                                    placeholder=" Enter product Price"
                                     className="input input-bordered w-full max-w-xs"
-                                    {...register("originalPrice", {
+                                    {...register("price", {
                                         required: {
                                             value: true,
                                             message: 'Product Price is Required'
@@ -199,45 +143,27 @@ const AddProduct = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+                                    {errors.price?.type === 'required' && <span className="label-text-alt text-red">{errors.price.message}</span>}
                                 </label>
                             </div>
 
-                            {/* Input discountPrice Price */}
+                            {/* Input minimum order */}
                             <div className="form-control w-full max-w-xs">
                                 <input
                                     type="number"
-                                    placeholder=" Enter discountPrice Price"
+                                    placeholder=" Enter minimum order"
                                     className="input input-bordered w-full max-w-xs"
-                                    {...register("discountPrice", {
+                                    {...register("minOrder", {
                                         required: {
                                             value: true,
-                                            message: 'Product Price is Required'
+                                            message: 'Minimum Quantity is Required'
                                         }
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+                                    {errors.minOrder?.type === 'required' && <span className="label-text-alt text-red">{errors.minOrder.message}</span>}
                                 </label>
                             </div>
-
-                            {/* Input review range */}
-                            {/* <div className="form-control w-full max-w-xs">
-                                <input
-                                    type="number"
-                                    placeholder=" Enter Review"
-                                    className="input input-bordered w-full max-w-xs"
-                                    {...register("review", {
-                                        required: {
-                                            value: true,
-                                            message: 'Review Required'
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.review?.type === 'required' && <span className="label-text-alt text-red-500">{errors.review.message}</span>}
-                                </label>
-                            </div> */}
 
                             {/* Input Available Product Quantity*/}
                             <div className="form-control w-full max-w-xs">
@@ -253,7 +179,7 @@ const AddProduct = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                                    {errors.quantity?.type === 'required' && <span className="label-text-alt text-red">{errors.quantity.message}</span>}
                                 </label>
                             </div>
 
@@ -271,7 +197,7 @@ const AddProduct = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
+                                    {errors.image?.type === 'required' && <span className="label-text-alt text-red">{errors.image.message}</span>}
                                 </label>
                             </div>
 
