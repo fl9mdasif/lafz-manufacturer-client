@@ -16,8 +16,9 @@ import PrivateAuth from './Components/Shared/Login/PrivateAuth';
 import Dashboard from './Components/Dashboard/Dashboard';
 import MyOrders from './Components/Dashboard/MyOrder';
 import MyProfile from './Components/Dashboard/MyProfile';
-import AddReviews from './Components/Dashboard/AddReview';
+import AddReviews from './Components/Dashboard/AddReviews';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
+import Reviews from './Components/Reviews/Reviews';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <Route path="manageAllOrders" element={<ManageAllOrders />}></Route>
         </Route>
 
+        <Route path='reviews' element={<Reviews />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
 

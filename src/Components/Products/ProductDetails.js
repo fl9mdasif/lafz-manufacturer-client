@@ -3,17 +3,17 @@ import { useQuery } from '@tanstack/react-query'
 import { Link, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import Loading from '../Shared/Loading';
-import './ProductStyle.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import './ProductStyle.css';
+import Loading from '../Shared/Loading';
 import auth from '../../Firebase.init';
 
-
 const ProductDetails = () => {
+
     const [user] = useAuthState(auth)
     const userEmail = user.reloadUserInfo.email;
 
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     // const navigate = useNavigate()
     const { productID } = useParams();
     const { isLoading, error, data: product, refetch } = useQuery(['productData'], () =>
@@ -22,26 +22,25 @@ const ProductDetails = () => {
     )
     if (isLoading) return <Loading />
     if (error) return 'An error has occurred: ' + error.message
-    console.log('Product:', product)
+    // console.log('Product:', product)
 
-    const { _id, name, description, available, price, imgUrl, minOrder } = product
+    const { _id, name, description, available, price, imgUrl, minOrder, category } = product
 
     // restockQuantity
     const onSubmit = formInfo => {
-        const { quantity } = formInfo
-        const totalPrice = quantity * price
+        const { quantity } = formInfo;
+        const totalPrice = quantity * price;
+
         const userOrder = {
             name: name,
             email: userEmail,
             orderQuantity: quantity,
             imgUrl: imgUrl,
             price: totalPrice,
-
         }
         console.log('userOrder', userOrder);
 
         const url = `http://localhost:5000/userOrder`;
-
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(userOrder),
@@ -58,7 +57,7 @@ const ProductDetails = () => {
 
 
         const url1 = `http://localhost:5000/allProducts/${_id}`;
-        console.log(url1)
+        // console.log(url1);
         const newStocks = available - quantity;
         console.log('newStocks', newStocks);
 
@@ -82,58 +81,11 @@ const ProductDetails = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                console.log(json);
-                toast.success('Product Quantity updated successfully')
                 refetch()
             });
     }
 
-    // const deliveryBtnDecrease = available - 1;
-    // // console.log(deliveryBtnDecrease);
 
-    // delivey btn decrease product quantity by one  
-    const deliveryProduct = () => {
-
-        const product = {
-            // name: name,
-            // description: description,
-            // brand: brand,
-            // gender: gender,
-            // originalPrice: originalPrice,
-            // discountPrice: discountPrice,
-            // available: deliveryBtnDecrease,
-            // imgUrl: imgUrl,
-            // discountRoundPrice: discountRoundPrice,
-            // review: review,
-        }
-        // console.log('tasklist', product);
-
-
-        const url = `https://pure-shore-88854.herokuapp.com/allshoes/${productID}`;
-
-        //put updateOne
-        fetch(url, {
-            method: 'PUT',
-            body: JSON.stringify(product),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json);
-                toast.success('Product Quantity updated successfully')
-                refetch()
-            });
-        reset()
-    }
-
-    // const manageInventory = () => {
-    //     navigate('/manageshoes')
-    // }
-    // const addItemPage = () => {
-    //     navigate('/addShoe')
-    // }
     return (
         <>
             <section class="text-gray-600 py-4 body-font overflow-hidden">
@@ -143,13 +95,12 @@ const ProductDetails = () => {
                         <img alt="ecommerce" class="productDetailsImg border-base lg:w-1/2 w-full lg:h-auto  object-contain object- rounded"
                             src={imgUrl} />
 
-
                         <div class=" border-gray-100 lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                            {/* <p class="text-sm pb-2 title-font text-gray-500 uppercase tracking-widest">{brand}</p> */}
+                            <p class="text-sm pb-2 title-font text-gray-500 uppercase tracking-widest">{category}</p>
                             <h1 class=" text-3xl title-font font-medium">{name}</h1>
 
                             {/* Review section */}
-                            <div class="flex mb-2 ">
+                            <div class="flex mb-2 flex-col">
                                 <span class="flex items-center">
                                     <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-gold" viewBox="0 0 24 24">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -166,8 +117,9 @@ const ProductDetails = () => {
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-gold" viewBox="0 0 24 24">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                     </svg>
-                                    <span class="text-gray-600 ml-3">4 Reviews</span>
                                 </span>
+                                <span class="text-gray-600">4 Reviews</span>
+
                             </div>
 
                             {/* discount percentage */}
@@ -196,16 +148,15 @@ const ProductDetails = () => {
                                 </div>
                             </div>
 
-
                             {/* update quantity   */}
                             <div className="flex-col flex">
-                                <p className="mb-3"> Enter the quantity</p>
+                                <p className="mb-3"> Enter your buying quantity</p>
                                 <form className="flex  " onSubmit={handleSubmit(onSubmit)}>
 
                                     {/* Input discountPrice Price */}
                                     <div className="form-control w-24 max-w-xs">
                                         <input
-                                            defaultValue={available}
+                                            defaultValue={minOrder}
                                             min={minOrder}
                                             max={available}
                                             type="number"
@@ -227,9 +178,10 @@ const ProductDetails = () => {
                                     <input className='btn ml-3  bg-base  text-white' type="submit" value="Place Order" />
                                 </form>
 
-                                <button onClick={() => deliveryProduct()} className="btn my-3 bg-blue ">PLACE DELIVERY</button>
-                                <Link to="/addshoe" className="btn mb-3 bg-base1 ">Add new Item</Link>
-                                <Link to='/manageshoes' className="btn bg-red"> Manage Inventory</Link>
+                                {/* <button onClick={() => deliveryProduct()} className="btn my-3 bg-blue ">PLACE DELIVERY</button> */}
+                                <Link to="/dashboard" className="btn mb-3 bg-base1 ">My orders</Link>
+                                <Link to="/shop" className="btn mb-3 bg-base1 ">View all products</Link>
+                                {/* <Link to='/manageshoes' className="btn bg-red"> Manage Inventory</Link> */}
                             </div>
 
                         </div>

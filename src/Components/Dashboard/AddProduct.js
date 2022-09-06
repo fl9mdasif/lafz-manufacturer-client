@@ -1,27 +1,21 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+// import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import auth from '../../Firebase.init';
+// import auth from '../../Firebase.init';
 
 const AddProduct = () => {
     const imageStorageKey = '2c213338298945009a5f44b7b85d3b4f';
 
     //Form Control & Submit
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const [user] = useAuthState(auth)
-    // console.log(user.email);
 
     const onSubmit = formInfo => {
 
         const { name, description, quantity, price, category, minOrder } = formInfo;
-
-        // const discount = ((originalPrice - discountPrice) / originalPrice) * 100;
-        // const discountRoundPrice = JSON.stringify(Math.round(discount))
-        // // console.log('discount: ', discount);
 
         //imageBB api
         const image = formInfo.image[0];
@@ -61,7 +55,7 @@ const AddProduct = () => {
                         .then(data => {
                             console.log(data)
                             if (data) {
-                                toast.success(`Product Added to Database and My item page`)
+                                toast.success(`Product Added to shop page`)
                             }
                             else {
                                 toast.error(`Already have and with same Name!`)
@@ -70,22 +64,17 @@ const AddProduct = () => {
                         });
                 }
             });
-
-
         reset();
-
-
 
     }
     return (
         <div>
-            <div className="py-10 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">ADD PRODUCT</div>
+            <div className="pt-3 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">ADD PRODUCT</div>
 
             <div className='flex  justify-center items-center'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
-
 
                             {/* Input Product Name */}
                             <div className="form-control w-full max-w-xs">
@@ -126,6 +115,30 @@ const AddProduct = () => {
                                 <label className="label">
                                     {errors.description?.type === 'required' && <span className="label-text-alt text-red">{errors.description.message}</span>}
                                     {errors.description?.type === 'pattern' && <span className="label-text-alt text-red">{errors.description.message}</span>}
+                                </label>
+                            </div>
+
+                            {/* Input Product Description */}
+                            <div className="form-control w-full max-w-xs">
+
+                                <input
+                                    type="text"
+                                    placeholder=" Enter Product category"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("category", {
+                                        required: {
+                                            value: true,
+                                            message: 'Product Description is Required'
+                                        },
+                                        pattern: {
+                                            value: true,
+                                            message: 'Provide Product category'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.category?.type === 'required' && <span className="label-text-alt text-red">{errors.category.message}</span>}
+                                    {errors.category?.type === 'pattern' && <span className="label-text-alt text-red">{errors.category.message}</span>}
                                 </label>
                             </div>
 
@@ -202,7 +215,7 @@ const AddProduct = () => {
                             </div>
 
                             {/* Sbmit Button */}
-                            <input className='btn bg-base w-full max-w-xs text-white' type="submit" value="Upload Shoe" />
+                            <input className='btn bg-base w-full max-w-xs text-white' type="submit" value="Upload product" />
                         </form>
 
                     </div>

@@ -4,7 +4,7 @@ import Hero from '../Hero.js/Hero';
 // import Products from '../Products/Products';
 import Testimonial from '../Testimonial/Testimonial';
 import CertificatesCarousel from './CertificatesCarousel';
-import NewProducts from './NewProducts';
+import NewProducts from '../Products/NewProducts';
 import ServiceCard from './ServiceCard';
 
 const Home = () => {

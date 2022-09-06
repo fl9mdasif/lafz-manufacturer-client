@@ -21,6 +21,7 @@ const Navbar = () => {
             <li><a href='/'>Home</a></li>
             <li><Link to='/shop' >Shop</Link></li>
             <li><Link to='/blogs' >Blog</Link></li>
+            <li><Link to='/reviews' >Reviews</Link></li>
             {/* <li><Link to='/prac' >Practice</Link></li> */}
             {user && <li><Link to='/dashboard' >Dashboard</Link></li>}
             {/* {user && <li><Link to='/manageProduct' >Manage Product</Link></li>} */}

@@ -11,7 +11,7 @@ const Product = ({ product }) => {
     // console.log(product);
 
     // const { _id, name, imgUrl, price, brand, } = product;
-    const { _id, name, originalPrice, discountPrice, imgUrl, discountRoundPrice } = product
+    const { _id, name, price, imgUrl } = product
     // console.log(_id);
 
     return (
@@ -23,9 +23,10 @@ const Product = ({ product }) => {
             </div>
 
             {/* card discount top */}
-            <div className='absolute product-percentage'>
+
+            {/* <div className='absolute product-percentage'>
                 <p className=' text-xs '>{discountRoundPrice}%</p>
-            </div>
+            </div> */}
 
 
             <div class="items-center ">
@@ -43,9 +44,9 @@ const Product = ({ product }) => {
                     <div className="flex items-center justify-between  mt-1 mb-4">
                         <p className="text-xl font-semibold text-base pb-2">
                             {/* original Price */}
-                            <span className="text-sm text-red pr-3  line-through"><span>$</span>{originalPrice}</span>
+                            {/* <span className="text-sm text-red pr-3  line-through"><span>$</span>{originalPrice}</span> */}
                             {/* discount price */}
-                            <span className="text-2xl text-base1 "><span>$</span>{discountPrice}</span>
+                            <span className="text-2xl text-base1 "><span>$</span>{price}</span>
                         </p>
                         <button onClick={() => navigateProductDetails(_id)} class=" btn-sm font-semibold bg-base btn-primary rounded-md ">Buy Now</button>
                     </div>

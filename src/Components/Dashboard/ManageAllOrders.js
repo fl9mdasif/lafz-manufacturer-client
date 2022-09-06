@@ -25,7 +25,7 @@ const ManageAllOrders = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    toast.error('product deleted from All shoes')
+                    toast.error('product deleted from All orders ')
                     refetch()
 
                 })

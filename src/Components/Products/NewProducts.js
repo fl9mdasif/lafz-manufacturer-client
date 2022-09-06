@@ -1,20 +1,17 @@
 import React from 'react';
-import '../../../src/Components/Home/styles.css'
+import '../../../src/Components/Home/Home.styles.css'
 import "swiper/css";
 import "swiper/css/navigation";
-import { useQuery } from '@tanstack/react-query'
+// import { useQuery } from '@tanstack/react-query'
 import Product from './Product';
 import { Link } from 'react-router-dom';
-import Loading from '../Shared/Loading';
+// import Loading from '../Shared/Loading';
+import useProducts from '../Hooks/Hooks';
 
 const NewProducts = () => {
 
-    const { isLoading, error, data: products } = useQuery(['shoeData'], () =>
-        fetch(`https://pure-shore-88854.herokuapp.com/allShoes`).then(res =>
-            res.json())
-    )
-    if (isLoading) return <Loading />
-    if (error) return 'An error has occurred: ' + error.message
+    const products = useProducts([])
+    // console.log(products)
     return (
 
         <>
@@ -31,7 +28,7 @@ const NewProducts = () => {
                     lg:grid-cols-3 
                     xl:grid-cols-4 ">
                 {
-                    products.slice(4, 10).map(product => <Product key={product._id} product={product}></Product>)
+                    products[0].map(product => <Product key={product._id} product={product}></Product>)
                 }
             </div>
 
