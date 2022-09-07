@@ -11,11 +11,12 @@ const Footer = () => {
                         <a href='/' class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                             <a href='/' className=" bg- pl-3 font-bold text-head normal-case text-xl" >
                                 <img style={{
-                                    height: '40px',
-                                    width: '100%',
+                                    height: '35px',
+                                    width: '75px',
+                                    objectFit: 'contain',
                                     marginLeft: '10px',
-                                }}
-                                    alt=''
+                                    // objectFit: 'cover'
+                                }} alt=''
                                     src={Navlogo} />
                             </a >
                             <span class="ml-3 text-xl">

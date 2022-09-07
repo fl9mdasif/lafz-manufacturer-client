@@ -10,6 +10,7 @@ const Navbar = () => {
 
     const [user] = useAuthState(auth);
     const handleSignOut = () => {
+        localStorage.removeItem('JWT_TOKEN')
         signOut(auth)
     }
 
@@ -47,9 +48,10 @@ const Navbar = () => {
                 <a href="/" className="  pl-3 font-bold text-black normal-case text-xl" >
                     <img style={{
                         height: '35px',
-                        width: '100%',
+                        width: '75px',
+                        objectFit: 'contain',
                         marginLeft: '10px',
-                        objectFit: 'cover'
+                        // objectFit: 'cover'
                     }}
                         alt='' src={Navlogo} />
                 </a >

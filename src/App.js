@@ -19,6 +19,7 @@ import MyProfile from './Components/Dashboard/MyProfile';
 import AddReviews from './Components/Dashboard/AddReviews';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 import Reviews from './Components/Reviews/Reviews';
+import MyPortfolio from './Components/Dashboard/MyPortfolio';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="manageProducts" element={<ManageProduct />}></Route>
           <Route path="addProduct" element={<AddProduct />}></Route>
           <Route path="myProfile" element={<MyProfile />}></Route>
+          <Route path="myPortfolio" element={<MyPortfolio />}></Route>
           <Route path="addReview" element={<AddReviews />}></Route>
           <Route path="manageAllOrders" element={<ManageAllOrders />}></Route>
         </Route>

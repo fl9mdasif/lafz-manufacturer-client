@@ -4,6 +4,7 @@ import '../Products/ProductStyle.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
 import Loading from '../Shared/Loading';
+import './Dashboard.Styles.css'
 
 const MyOrder = () => {
 
@@ -66,13 +67,14 @@ const MyOrder = () => {
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Manage</th>
+                        {/* <th>Confirm</th> */}
 
                     </tr>
                 </thead>
                 <tbody>
                     {
                         userOrders.map((product, index) =>
-                            <tr>
+                            <tr className='contentTr'>
                                 <td>{index + 1}</td>
                                 <td>
                                     <img
@@ -89,7 +91,7 @@ const MyOrder = () => {
                                 <td>{product.name}</td>
                                 <td>{product.orderQuantity}</td>
                                 <td>${product.price}</td>
-                                <td>
+                                <td className='flex justify-center items-center'>
 
                                     <button
                                         onClick={() => manageProductToDelete(product._id)}
@@ -97,6 +99,7 @@ const MyOrder = () => {
                                     >
                                         <box-icon color='red' type='solid' name='trash'></box-icon>
                                     </button>
+                                    <button className='btn btn-xs bg-base1'>Pay</button>
                                 </td>
                             </tr>
                         )

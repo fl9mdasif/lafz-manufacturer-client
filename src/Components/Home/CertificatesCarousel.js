@@ -17,7 +17,7 @@ const CertificatesCarousel = () => {
         <>
             <div className="py-5">
                 <div><h2 className="certificateH2 text-base1 text-center ">Halal certificates</h2></div>
-                <div><p className="certificatep  text-center lg:text-lg sm:text-sm ">Our Halal Certificates come from globally recognized bodies <br />
+                <div><p className="certificatep  text-center lg:text-lg sm:text-sm ">Our Halal Certificates come from globally recognized bodies
                     in Bangladesh, Europe, UAE, India and more!</p></div>
             </div>
             <Swiper

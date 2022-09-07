@@ -15,7 +15,7 @@ const Product = ({ product }) => {
     // console.log(_id);
 
     return (
-        <div class="product-container  drop-shadow-xl relative rounded-none px-4 card w-72 mb-4 bg-base-100 ">
+        <div class="product-container  drop-shadow-xl relative rounded-none px-4 card w-72 mb-4 bg-body ">
             <div className='hover14 column'>
                 <figure class="px-0 pt-4">
                     <img src={imgUrl} alt="Shoes" class="productImg rounded" />

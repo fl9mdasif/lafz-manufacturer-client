@@ -1,37 +1,42 @@
 import React, { useEffect } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase.init'
 import { useForm } from "react-hook-form";
 import Loading from '../Loading'
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import googlePng from './google.png';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
-        user,
+
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [user] = useAuthState(auth);
+    // console.log('login', user);
 
     //resetPassword
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     // const emailRef = useRef('');
-
+    useToken(user);
 
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
+    const token = localStorage.getItem('JWT_TOKEN')
+
     useEffect(() => {
-        if (user || gUser) {
+        if (token || gUser) {
             navigate(from, { replace: true });
         }
-    }, [user, gUser, from, navigate])
+    }, [user, token, gUser, from, navigate])
 
     if (loading || gLoading) {
         return <Loading></Loading>

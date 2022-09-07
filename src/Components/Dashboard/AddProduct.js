@@ -67,6 +67,7 @@ const AddProduct = () => {
         reset();
 
     }
+
     return (
         <div>
             <div className="pt-3 font-bold text-center text-base1 sm:text-2xl md:text-4xl lg:text-5xl">ADD PRODUCT</div>
@@ -142,7 +143,7 @@ const AddProduct = () => {
                                 </label>
                             </div>
 
-                            {/* Input product originalPrice  */}
+                            {/* Input product Price  */}
                             <div className="form-control w-full max-w-xs">
                                 <input
                                     type="number"
