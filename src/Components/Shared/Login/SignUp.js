@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
 import { ToastContainer } from 'react-toastify';
 import googlePng from './google.png'
+import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
 
@@ -20,8 +21,11 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
     const navigate = useNavigate();
+
+    const [token] = useToken(user || gUser);
+    // const token = localStorage.getItem('JWT_TOKEN')
+    // console.log(token);
 
     let signInError;
 
@@ -33,16 +37,15 @@ const SignUp = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    if (user || gUser) {
-        console.log(user || gUser);
+    if (token) {
+        navigate('/');
     }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log('update done');
-        navigate('/');
-        console.log(data);
+        // console.log('update done');
+        // console.log(data);
         // toast('check your mail and verify your email')
     }
     return (

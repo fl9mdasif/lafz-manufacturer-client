@@ -46,7 +46,8 @@ const Product = ({ product }) => {
                             {/* original Price */}
                             {/* <span className="text-sm text-red pr-3  line-through"><span>$</span>{originalPrice}</span> */}
                             {/* discount price */}
-                            <span className="text-2xl text-base1 "><span>$</span>{price}</span>
+                            <span className="text-2xl text-bold text-base1 ">
+                                {price} <span className="text-lg text-black">TK</span></span>
                         </p>
                         <button onClick={() => navigateProductDetails(_id)} class=" btn-sm font-semibold bg-base btn-primary rounded-md ">Buy Now</button>
                     </div>

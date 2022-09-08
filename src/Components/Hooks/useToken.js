@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react"
 
 const useToken = user => {
-    const [token, SetToken] = useState('')
+    const [token, setToken] = useState('')
 
-    // console.log('user from useTOken', user);
+    console.log('user from useTOken', user);
 
     useEffect(() => {
-        const email = user?.email;
+        // const nEmail = user?.user?.auth?.email
+        const email = user?.user?.email;
+        console.log('userEmail:', email)
+
         const currentUser = {
             email: email
         }
-        const url = `http://localhost:5000/userEmailCollection/${email}`
+        const url = `http://localhost:5000/user/${email}`
         if (email) {
             fetch(url, {
                 method: 'PUT',
@@ -22,7 +25,8 @@ const useToken = user => {
                 .then((response) => response.json())
                 .then((data) => {
                     const accessToken = data.token
-                    console.log('data form userData', data)
+                    setToken(accessToken)
+                    // console.log('data form useToken', data)
                     // console.log('Jwt_token', accessToken)
                     localStorage.setItem('JWT_TOKEN', accessToken)
                 });

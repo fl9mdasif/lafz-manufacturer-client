@@ -98,9 +98,10 @@ const ProductDetails = () => {
                         <div class=" border-gray-100 lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                             <p class="text-sm pb-2 title-font text-gray-500 uppercase tracking-widest">{category}</p>
                             <h1 class=" text-3xl title-font font-medium">{name}</h1>
+                            <p className="mb-3">{description} </p>
 
                             {/* Review section */}
-                            <div class="flex mb-2 flex-col">
+                            <div class="flex mb-2 flex-co ">
                                 <span class="flex items-center">
                                     <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-gold" viewBox="0 0 24 24">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -118,7 +119,7 @@ const ProductDetails = () => {
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                     </svg>
                                 </span>
-                                <span class="text-gray-600">4 Reviews</span>
+                                <span class=" ml-3 text-gray-600">4 Reviews</span>
 
                             </div>
 
@@ -129,7 +130,8 @@ const ProductDetails = () => {
                             {/* price   */}
                             <div class="flex mb-2 items-center ">
                                 {/* <span style={{ color: '#4c4c4cc7' }} class="title-font pr-4 line-through font-medium text-xl"><span>$</span>{originalPrice}</span> */}
-                                <span class="title-font font-medium text-3xl  text-base"><span>$</span>{price}</span>
+                                <span class="title-font font-medium text-3xl  text-base">{price}
+                                    <span className='text-lg text-black'> TK</span></span>
                                 <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
 
                             </div>

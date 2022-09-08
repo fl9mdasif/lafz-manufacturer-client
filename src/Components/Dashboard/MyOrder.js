@@ -12,7 +12,12 @@ const MyOrder = () => {
     const userEmail = user.reloadUserInfo.email;
 
     const { isLoading, error, data: products, refetch } = useQuery(['usersOrderData'], () =>
-        fetch(`http://localhost:5000/userOrder`).then(res =>
+        fetch(`http://localhost:5000/userOrder`, {
+            method: 'GET',
+            headers: {
+                'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
+            }
+        }).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />

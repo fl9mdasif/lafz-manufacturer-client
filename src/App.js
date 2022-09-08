@@ -20,6 +20,7 @@ import AddReviews from './Components/Dashboard/AddReviews';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 import Reviews from './Components/Reviews/Reviews';
 import MyPortfolio from './Components/Dashboard/MyPortfolio';
+import AllUsers from './Components/Dashboard/AllUsers';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           <Route path="myPortfolio" element={<MyPortfolio />}></Route>
           <Route path="addReview" element={<AddReviews />}></Route>
           <Route path="manageAllOrders" element={<ManageAllOrders />}></Route>
+          <Route path="users" element={<AllUsers />}></Route>
         </Route>
 
         <Route path='reviews' element={<Reviews />} />
