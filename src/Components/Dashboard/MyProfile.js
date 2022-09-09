@@ -24,7 +24,7 @@ const MyProfile = () => {
         }
         console.log('userDetails', userDetails);
 
-        const url = `http://localhost:5000/userCollection`;
+        const url = `https://polar-atoll-50768.herokuapp.com/userCollection`;
 
         fetch(url, {
             method: 'POST',
@@ -46,7 +46,7 @@ const MyProfile = () => {
 
 
     const { isLoading, error, data: userData } = useQuery(['usersData'], () =>
-        fetch(`http://localhost:5000/userCollection`).then(res =>
+        fetch(`https://polar-atoll-50768.herokuapp.com/userCollection`).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />

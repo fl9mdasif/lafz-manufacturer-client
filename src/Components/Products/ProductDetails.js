@@ -17,7 +17,7 @@ const ProductDetails = () => {
     // const navigate = useNavigate()
     const { productID } = useParams();
     const { isLoading, error, data: product, refetch } = useQuery(['productData'], () =>
-        fetch(`http://localhost:5000/allProducts/${productID}`).then(res =>
+        fetch(`https://polar-atoll-50768.herokuapp.com/allProducts/${productID}`).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
@@ -40,7 +40,7 @@ const ProductDetails = () => {
         }
         console.log('userOrder', userOrder);
 
-        const url = `http://localhost:5000/userOrder`;
+        const url = `https://polar-atoll-50768.herokuapp.com/userOrder`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(userOrder),
@@ -56,7 +56,7 @@ const ProductDetails = () => {
             });
 
 
-        const url1 = `http://localhost:5000/allProducts/${_id}`;
+        const url1 = `https://polar-atoll-50768.herokuapp.com/allProducts/${_id}`;
         // console.log(url1);
         const newStocks = available - quantity;
         console.log('newStocks', newStocks);

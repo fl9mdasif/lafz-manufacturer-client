@@ -44,7 +44,7 @@ const AddProduct = () => {
                     }
                     console.log('addProduct', product);
 
-                    const url = `http://localhost:5000/addProduct`;
+                    const url = `https://polar-atoll-50768.herokuapp.com/addProduct`;
 
                     fetch(url, {
                         method: 'POST',

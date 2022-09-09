@@ -13,7 +13,7 @@ const useToken = user => {
         const currentUser = {
             email: email
         }
-        const url = `http://localhost:5000/user/${email}`
+        const url = `https://polar-atoll-50768.herokuapp.com/user/${email}`
         if (email) {
             fetch(url, {
                 method: 'PUT',

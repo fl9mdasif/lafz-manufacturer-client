@@ -5,8 +5,13 @@ import Loading from '../Shared/Loading';
 
 const ManageAllOrders = () => {
 
-    const { isLoading, error, data: products, refetch } = useQuery(['usersOrderData'], () =>
-        fetch(`http://localhost:5000/userOrder`).then(res =>
+    const { isLoading, error, data: orders, refetch } = useQuery(['usersOrderData'], () =>
+        fetch(`https://polar-atoll-50768.herokuapp.com/userOrder`, {
+            method: 'GET',
+            headers: {
+                'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
+            }
+        }).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
@@ -18,7 +23,7 @@ const ManageAllOrders = () => {
     const manageProductToDelete = (id) => {
         const proceed = window.confirm('Are you sure to delete product');
         if (proceed) {
-            const url = `http://localhost:5000/userOrder/${id}`;
+            const url = `https://polar-atoll-50768.herokuapp.com/userOrder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -51,7 +56,7 @@ const ManageAllOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        products.map((product, index) =>
+                        orders.map((product, index) =>
                             <tr>
                                 <td>{index + 1}</td>
                                 <td>

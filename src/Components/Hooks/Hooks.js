@@ -6,7 +6,7 @@ const useProducts = () => {
     const [products, setProducts] = useState([]);
 
     const { status, isLoading, error, data: product } = useQuery(['allShoeData'], () =>
-        fetch('http://localhost:5000/allProducts').then(res =>
+        fetch('https://polar-atoll-50768.herokuapp.com/allProducts').then(res =>
             res.json()),
     )
 

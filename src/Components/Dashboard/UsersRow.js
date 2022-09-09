@@ -5,7 +5,7 @@ const UsersRow = ({ user, refetch, index }) => {
     const { email, role } = user;
 
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://polar-atoll-50768.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
@@ -25,10 +25,12 @@ const UsersRow = ({ user, refetch, index }) => {
             <td>{email}</td>
 
             <td className='flex justify-center items-center'>
-                {role !== 'admin' && <button
-                    onClick={makeAdmin} className='btn btn-xs bg-base1'>Make Admin
-                </button>}
-                {role === 'admin' && <p>Already in Admin</p>}
+                {
+                    role !== 'admin' && <button
+                        onClick={makeAdmin} className='btn btn-xs bg-base1'>Make Admin
+                    </button>
+                }
+                {role === 'admin' && <p className='text-green'>Already an Admin</p>}
             </td>
             <td>
                 <button className='btn btn-xs bg-red'>Delete</button>
