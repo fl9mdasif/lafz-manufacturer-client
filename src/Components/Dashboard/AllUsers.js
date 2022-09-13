@@ -28,7 +28,7 @@ const AllUsers = () => {
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Name</th>
+                        {/* <th>Name</th> */}
                         <th>Email</th>
                         <th>Update</th>
                         <th>Manage</th>
@@ -39,7 +39,10 @@ const AllUsers = () => {
                 <tbody>
                     {
                         users.map((user, index) =>
-                            <UsersRow user={user} refetch={refetch} index={index} key={user._id}></UsersRow>
+                            <UsersRow user={user}
+                                refetch={refetch}
+                                index={index}
+                                key={user._id}></UsersRow>
                         )
                     }
                 </tbody >

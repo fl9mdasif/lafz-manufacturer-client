@@ -13,7 +13,7 @@ const Review = ({ review }) => {
                         <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-1 mb-2"></span>
                         <div className='flex justify-center item-center'>
                             <div className=''>
-                                <img alt="testimonial"
+                                <img alt="test"
                                     class="w-12 h-12  object-cover object-center rounded-full ring ring-base1 ring-offset-base1 inline-block"
                                     src={image} />
                             </div>

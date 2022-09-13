@@ -1,24 +1,18 @@
 // import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
 // import { toast } from 'react-toastify';
-// import auth from '../../Firebase.init';
+import auth from '../../Firebase.init';
+import useAdmin from '../Hooks/useAdmin';
 // import Loading from '../Shared/Loading';
 
 const Dashboard = () => {
-    // const [user] = useAuthState(auth)
-    // const { isLoading, error, data: users } = useQuery(['usersData'], () =>
-    //     fetch(`https://polar-atoll-50768.herokuapp.com/users`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
-    //         }
-    //     }).then(res =>
-    //         res.json())
-    // )
-    // if (isLoading) return <Loading />
-    // if (error) return 'An error has occurred: ' + error.message;
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user);
+    // console.log(admin)
+
+
     return (
         <div class="drawer drawer-mobile shadow-md">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
@@ -30,15 +24,17 @@ const Dashboard = () => {
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-48 bg-base1 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <li><Link to="/dashboard">My Order</Link></li>
-                    <li><Link to="/dashboard/addReview">Add a Review</Link></li>
-                    <li><Link to="/dashboard/myProfile">My Profile</Link></li>
-                    <li><Link to="/dashboard/myPortfolio">My Portfolio</Link></li>
-                    <li><Link to="/dashboard/addProduct">Add Product</Link></li>
-                    <li><Link to="/dashboard/manageProducts">Manage Product</Link></li>
-                    <li><Link to="/dashboard/manageAllOrders">Manage All Orders</Link></li>
-                    <li><Link to="/dashboard/users">Manage All Users</Link></li>
-                    {/* <li><Link to="/dashboard/allorders">All Orders </Link></li> */}
+                    {admin || <li><Link to="/dashboard">My Order</Link></li>}
+                    {admin || <li><Link to="/dashboard/addReview">Add a Review</Link></li>}
+                    {admin || <li><Link to="/dashboard/myProfile">My Profile</Link></li>}
+                    {admin || <li><Link to="/dashboard/myPortfolio">My Portfolio</Link></li>}
+
+                    {/* admin role   */}
+
+                    {admin && <li><Link to="/dashboard/addProduct">Add Product</Link></li>}
+                    {admin && <li><Link to="/dashboard/manageProducts">Manage Product</Link></li>}
+                    {admin && <li><Link to="/dashboard/manageAllOrders">Manage All Orders</Link></li>}
+                    {admin && <li><Link to="/dashboard/users">Manage All Users</Link></li>}
                 </ul>
             </div>
         </div>

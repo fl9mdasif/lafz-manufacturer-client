@@ -16,7 +16,7 @@ const ManageAllOrders = () => {
     )
     if (isLoading) return <Loading />
     if (error) return 'An error has occurred: ' + error.message
-    // console.log(products)
+    // console.log(orders)
 
 
     // Delete Single Shoe
@@ -49,6 +49,7 @@ const ManageAllOrders = () => {
                         <th>No.</th>
                         <th>Image</th>
                         <th>Name</th>
+                        <th>Email</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Manage</th>
@@ -72,8 +73,9 @@ const ManageAllOrders = () => {
                                     />
                                 </td>
                                 <td>{product.name}</td>
+                                <td>{product.email}</td>
                                 <td>{product.orderQuantity}</td>
-                                <td>${product.price}</td>
+                                <td>Tk {product.price}</td>
                                 <td>
 
                                     <button

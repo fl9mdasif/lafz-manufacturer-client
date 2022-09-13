@@ -63,7 +63,7 @@
     width: 240px;
     height: 200px;
     /* border-bottom: 2px solid rgba(184, 180, 177, 0.683); */
-    border-left: 2px solid rgba(184, 180, 177, 0.683);
+    /* border-left: 2px solid rgba(184, 180, 177, 0.683); */
     object-fit: cover;
 }
 

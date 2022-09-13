@@ -43,13 +43,12 @@ const Product = ({ product }) => {
 
                     <div className="flex items-center justify-between  mt-1 mb-4">
                         <p className="text-xl font-semibold text-base pb-2">
-                            {/* original Price */}
-                            {/* <span className="text-sm text-red pr-3  line-through"><span>$</span>{originalPrice}</span> */}
-                            {/* discount price */}
+
                             <span className="text-2xl text-bold text-base1 ">
                                 {price} <span className="text-lg text-black">TK</span></span>
                         </p>
-                        <button onClick={() => navigateProductDetails(_id)} class=" btn-sm font-semibold bg-base btn-primary rounded-md ">Buy Now</button>
+                        <button onClick={() => navigateProductDetails(_id)}
+                            class=" btn-sm font-semibold bg-base btn-primary rounded-md ">Buy Now</button>
                     </div>
                 </div>
             </div>

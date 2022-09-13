@@ -39,7 +39,6 @@ const MyOrder = () => {
                     console.log(data)
                     toast.error('product deleted from myOrder')
                     refetch()
-
                 })
         }
     };
@@ -48,9 +47,9 @@ const MyOrder = () => {
     const userOrders = [];
     // console.log(userOrders);
     products.map(product => {
-        // console.log('productmail:', product.email, 'user:', userEmail)
+        // console.log('productmail:', product)
 
-        if (product.email === userEmail) {
+        if (product?.email === userEmail) {
             userOrders.push(product)
         }
         else {
@@ -70,7 +69,8 @@ const MyOrder = () => {
                         <th>Image</th>
                         <th>Name</th>
                         <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Price/unit</th>
+                        <th>SubTotal</th>
                         <th>Manage</th>
                         {/* <th>Confirm</th> */}
 
@@ -95,7 +95,8 @@ const MyOrder = () => {
                                 </td>
                                 <td>{product.name}</td>
                                 <td>{product.orderQuantity}</td>
-                                <td>${product.price}</td>
+                                <td>Tk {product.price / product.orderQuantity}</td>
+                                <td>Tk {product.price}</td>
                                 <td className='flex justify-center items-center'>
 
                                     <button

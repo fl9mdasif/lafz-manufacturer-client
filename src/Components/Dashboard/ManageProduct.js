@@ -43,7 +43,7 @@ const ManageProduct = () => {
                             <th>Image</th>
                             <th>Name</th>
                             <th>Quantity</th>
-                            <th>Price</th>
+                            <th>Price/unit</th>
                             <th>Manage</th>
                         </tr>
                     </thead>
@@ -66,7 +66,7 @@ const ManageProduct = () => {
                                     </td>
                                     <td>{product.name}</td>
                                     <td>{product.available}</td>
-                                    <td>${product.price}</td>
+                                    <td>Tk {product.price}</td>
 
                                     <td>
                                         <button
