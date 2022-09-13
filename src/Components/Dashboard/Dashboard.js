@@ -5,12 +5,15 @@ import { Link, Outlet } from 'react-router-dom';
 // import { toast } from 'react-toastify';
 import auth from '../../Firebase.init';
 import useAdmin from '../Hooks/useAdmin';
+
 // import Loading from '../Shared/Loading';
 
 const Dashboard = () => {
+
     const [user] = useAuthState(auth)
     const [admin] = useAdmin(user);
-    // console.log(admin)
+    console.log('dashboard admin:', admin)
+    console.log('dashboard user:', user)
 
 
     return (

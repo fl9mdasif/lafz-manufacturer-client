@@ -8,7 +8,7 @@ const UsersRow = ({ user, refetch, index }) => {
         fetch(`https://polar-atoll-50768.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
-                'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
+                'authorization': `Bearer ${localStorage.getItem('JWT_TOKEN')}`
             }
         })
             .then(res => {

@@ -9,13 +9,13 @@ import './Dashboard.Styles.css'
 const MyOrder = () => {
 
     const [user] = useAuthState(auth)
-    const userEmail = user.reloadUserInfo.email;
+    const userEmail = user?.reloadUserInfo.email;
 
     const { isLoading, error, data: products, refetch } = useQuery(['usersOrderData'], () =>
         fetch(`https://polar-atoll-50768.herokuapp.com/userOrder`, {
             method: 'GET',
             headers: {
-                'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
+                'authorization': `Bearer ${localStorage.getItem('JWT_TOKEN')}`
             }
         }).then(res =>
             res.json())

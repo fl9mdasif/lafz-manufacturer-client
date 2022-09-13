@@ -8,15 +8,13 @@ const AllUsers = () => {
         fetch(`https://polar-atoll-50768.herokuapp.com/users`, {
             method: 'GET',
             headers: {
-                'authorization': ` Bearer ${localStorage.getItem('JWT_TOKEN')}`
+                'authorization': `Bearer ${localStorage.getItem('JWT_TOKEN')}`
             }
         }).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
     if (error) return 'An error has occurred: ' + error.message;
-
-
 
     // const { email } = users
     return (

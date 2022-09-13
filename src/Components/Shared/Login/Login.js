@@ -18,10 +18,12 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     // const [user] = useAuthState(auth);
 
+    const [token] = useToken(user || gUser);
+
     //resetPassword
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
-    const [token] = useToken(user || gUser);
+    console.log('token from login', token)
     // const token = localStorage.getItem('JWT_TOKEN')
 
     let signInError;
