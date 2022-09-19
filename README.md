@@ -24,5 +24,7 @@
 * Tanstack/react-query
 * React-hook-form
 * swiper.js
-* Boxicons etc
+* Boxicons 
 * Heroku 
+* ETC
+
