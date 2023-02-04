@@ -12,7 +12,7 @@ const MyOrder = () => {
     const userEmail = user?.reloadUserInfo.email;
 
     const { isLoading, error, data: products, refetch } = useQuery(['usersOrderData'], () =>
-        fetch(`https://polar-atoll-50768.herokuapp.com/userOrder`, {
+        fetch(`https://lafz-server.onrender.com/userOrder`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('JWT_TOKEN')}`
@@ -30,7 +30,7 @@ const MyOrder = () => {
     const manageProductToDelete = (id) => {
         const proceed = window.confirm('Are you sure to delete product');
         if (proceed) {
-            const url = `https://polar-atoll-50768.herokuapp.com/userOrder/${id}`;
+            const url = `https://lafz-server.onrender.com/userOrder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

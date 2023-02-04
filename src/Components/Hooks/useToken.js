@@ -12,7 +12,7 @@ const useToken = user => {
         const currentUser = {
             email: email
         }
-        const url = `https://polar-atoll-50768.herokuapp.com/user/${email}`
+        const url = `https://lafz-server.onrender.com/user/${email}`
         if (email) {
             fetch(url, {
                 method: 'PUT',

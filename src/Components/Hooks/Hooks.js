@@ -6,7 +6,7 @@ const useProducts = () => {
     const [products, setProducts] = useState([]);
 
     const { status, isLoading, error, data: product } = useQuery(['allShoeData'], () =>
-        fetch('https://polar-atoll-50768.herokuapp.com/allProducts').then(res =>
+        fetch('https://lafz-server.onrender.com/allProducts').then(res =>
             res.json()),
     )
 

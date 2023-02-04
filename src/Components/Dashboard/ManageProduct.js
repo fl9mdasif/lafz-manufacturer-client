@@ -8,7 +8,7 @@ const ManageProduct = () => {
 
 
     const { isLoading, error, data: product, refetch } = useQuery(['manageShoeData'], () =>
-        fetch(`https://polar-atoll-50768.herokuapp.com/allProducts`).then(res =>
+        fetch(`https://lafz-server.onrender.com/allProducts`).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
@@ -18,7 +18,7 @@ const ManageProduct = () => {
     const manageProductToDelete = (id) => {
         const proceed = window.confirm('Are you sure to delete product');
         if (proceed) {
-            const url = `https://polar-atoll-50768.herokuapp.com/allProducts/${id}`;
+            const url = `https://lafz-server.onrender.com/allProducts/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

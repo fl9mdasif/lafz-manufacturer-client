@@ -7,7 +7,7 @@ const useAdmin = (user) => {
         const email = user?.email;
 
         if (email) {
-            const url = `https://polar-atoll-50768.herokuapp.com/admin/${email}`;
+            const url = `https://lafz-server.onrender.com/admin/${email}`;
 
             fetch(url, {
                 method: 'GET',

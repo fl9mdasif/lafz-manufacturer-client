@@ -24,7 +24,7 @@ const MyProfile = () => {
         }
         console.log('userDetails', userDetails);
 
-        const url = `https://polar-atoll-50768.herokuapp.com/userCollection`;
+        const url = `https://lafz-server.onrender.com/userCollection`;
 
         fetch(url, {
             method: 'POST',
@@ -46,7 +46,7 @@ const MyProfile = () => {
 
 
     const { isLoading, error, data: userData } = useQuery(['usersData'], () =>
-        fetch(`https://polar-atoll-50768.herokuapp.com/userCollection`).then(res =>
+        fetch(`https://lafz-server.onrender.com/userCollection`).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
@@ -96,6 +96,7 @@ const MyProfile = () => {
                     <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className="p-3 font-bold text-center text-base1 sm:text-xl md:text-3xl lg:text-4xl">Add other details</h1>
                     <div className="flex justify-center">
+
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             {/* Input education */}

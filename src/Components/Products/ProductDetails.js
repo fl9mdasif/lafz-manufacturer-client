@@ -17,7 +17,7 @@ const ProductDetails = () => {
     // const navigate = useNavigate()
     const { productID } = useParams();
     const { isLoading, error, data: product, refetch } = useQuery(['productData'], () =>
-        fetch(`https://polar-atoll-50768.herokuapp.com/allProducts/${productID}`).then(res =>
+        fetch(`https://lafz-server.onrender.com/allProducts/${productID}`).then(res =>
             res.json())
     )
     if (isLoading) return <Loading />
@@ -40,7 +40,7 @@ const ProductDetails = () => {
         }
         console.log('userOrder', userOrder);
 
-        const url = `https://polar-atoll-50768.herokuapp.com/userOrder`;
+        const url = `https://lafz-server.onrender.com/userOrder`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(userOrder),
@@ -56,7 +56,7 @@ const ProductDetails = () => {
             });
 
 
-        const url1 = `https://polar-atoll-50768.herokuapp.com/allProducts/${_id}`;
+        const url1 = `https://lafz-server.onrender.com/allProducts/${_id}`;
         // console.log(url1);
         const newStocks = available - quantity;
         console.log('newStocks', newStocks);

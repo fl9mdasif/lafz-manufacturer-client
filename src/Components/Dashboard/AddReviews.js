@@ -29,7 +29,7 @@ const AddReviews = () => {
 
         }
         // send data to server
-        const url = `https://polar-atoll-50768.herokuapp.com/userReview`;
+        const url = `https://lafz-server.onrender.com/userReview`;
         fetch(url, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },

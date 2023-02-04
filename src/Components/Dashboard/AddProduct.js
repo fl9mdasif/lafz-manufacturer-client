@@ -44,7 +44,7 @@ const AddProduct = () => {
                     }
                     console.log('addProduct', product);
 
-                    const url = `https://polar-atoll-50768.herokuapp.com/addProduct`;
+                    const url = `https://lafz-server.onrender.com/addProduct`;
 
                     fetch(url, {
                         method: 'POST',

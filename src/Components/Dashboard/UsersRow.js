@@ -5,7 +5,7 @@ const UsersRow = ({ user, refetch, index }) => {
     const { _id, email, role } = user;
 
     const makeAdmin = () => {
-        fetch(`https://polar-atoll-50768.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://lafz-server.onrender.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('JWT_TOKEN')}`
@@ -29,7 +29,7 @@ const UsersRow = ({ user, refetch, index }) => {
         // console.log('id:', id)
         const proceed = window.confirm('Are you sure to delete a user');
         if (proceed) {
-            const url = `https://polar-atoll-50768.herokuapp.com/users/${id}`;
+            const url = `https://lafz-server.onrender.com/users/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

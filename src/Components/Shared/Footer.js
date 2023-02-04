@@ -24,8 +24,8 @@ const Footer = () => {
                             </span>
 
                         </a>
-                        <p class="mt-2  px-6 text-sm text-gray-500">
-                            Good shoes take you places - Give a shoe, Shoes provide access to education and an end to poverty.
+                        <p class="mt-2  px-6 text-sm text-white">
+                            Discover the beauty within with Lafz Cosmetics - premium quality makeup and skincare products.
                             <br />
                             shop: Banani, 1213 Dhaka, Bangladesh
                             Dedicated Support: +8801707525010

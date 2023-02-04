@@ -5,7 +5,7 @@ import UsersRow from './UsersRow';
 
 const AllUsers = () => {
     const { isLoading, error, data: users, refetch } = useQuery(['usersData'], () =>
-        fetch(`https://polar-atoll-50768.herokuapp.com/users`, {
+        fetch(`https://lafz-server.onrender.com/users`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('JWT_TOKEN')}`
